@@ -1,0 +1,185 @@
+body{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin:0;
+    padding: 0;
+    background-color: rgb(24, 28, 39);
+    color: white;
+}
+
+#heading{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(21, 200, 255);
+    margin-bottom: 40px;
+}
+
+img{
+    max-height:150px;
+    border-radius: 6px;
+    max-width:20%;
+    float:left;
+    margin-left:20px;
+}
+
+.list_item{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:80%;
+    margin: auto;
+    background-color: rgb(35, 42, 59);
+    border-radius: 6px;
+    margin-bottom: 25px;
+}
+.content{
+    padding: 0px 30px;
+    width: 60%;
+    float:left;
+}
+.item_heading{
+    font-size: 1.5rem;
+}
+.btns{
+    margin-right:20px;
+}
+.button{
+    all:unset;
+    padding:50% 15px;
+    background-color: rgba(59, 68, 85, 0.322);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.25s ease-in;
+}
+.button:hover{
+    background-color: rgba(121, 134, 158, 0.322);
+}
+
+
+.date{
+    text-align: center;
+    font-weight: bold;
+    margin-top: auto;
+}
+.add_item{
+    font-size: 2rem;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 60px;
+}
+
+.add_icn{
+    position: relative;
+    top: -33px;
+    background-color: rgb(24, 28, 39);
+}
+
+.add_icn span{
+    font-size: 1rem;
+}
+
+.add_form{
+    position: relative;
+    width:70vw;
+    background-color: rgba(106, 113, 119, 0.267);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font: 2rem;
+    display: none ;
+}
+form{
+    width:70%;
+    padding: 30px;
+}
+input{
+    display: block;
+    border: 0px ;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    width: 100%;
+    background-color: rgb(124 119 119);
+    color:white;
+    font-size: 1rem;
+}
+
+form button{
+    all:unset;
+    background-color: rgba(121, 134, 158, 0.322);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    display: block;
+    width: 10vw;
+    text-align: center;
+    margin: auto;
+}
+
+.bx-x-circle{
+    position: absolute;
+    top:0;
+    right:0;
+    font-size: 2rem;
+    transition: 0.3s ease;
+}
+
+.bx-x-circle:hover{
+    color: rgb(172, 80, 80);
+}
+.name{
+    display: flex;
+    align-items: center;
+    width: max-content;
+    background-color: rgba(100, 100, 100, 0.507);
+    padding: 5px;
+    border-radius: 0px 5px 5px 0px;
+}
+.bxl-sketch{
+    font-size:x-large;
+    color: grey;
+}
+
+
+#login{
+    width:50%;
+    float:left;
+}
+
+#signup{
+    width:50%;
+    float:left;
+}
+.new_Button{
+    text-align: center;
+}
+#new_user_Button{
+    all:unset;
+    cursor: pointer;
+}
+
+#hide{
+    width: 50%;
+    height: calc(100vh - var(--head-height) - 100px );
+    position: relative;
+    z-index: 99;
+    background-color: rgb(24, 28, 39);
+    left: 50%;
+}
+
+.user_page{
+    margin: auto;
+}
+
+#message{
+    position: absolute;
+    background-color: rgb(184, 32, 32);
+}
+#profile{
+    display:flex;
+    justify-content: space-between;
+}

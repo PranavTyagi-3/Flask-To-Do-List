@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/static/styl.css">
+</head>
+<body>
+    <div id="profile">
+        <p class="name">{{ id }} <i class='bx bxl-sketch'></i></p>
+        <a href="{{ url_for('login') }}" style="all: unset;">
+        <p class="name" style="border-radius: 5px 0px 0px 5px;"> Logout </i></p>
+        </a>
+    </div>
+    <h1 id="heading">Your Todo List</h1>
+    {% for i in tasks %}
+    <div class="list_item">
+        <img src="static/no_img.jpg">
+        <span class="content">
+        <p class="item_heading">
+            {{ i[1] }}
+        </p>
+        <p class="task">
+            {{ i[2] }}
+        </p>
+        <p class="date">
+            {{ i[3] }}
+        </p>
+        </span>
+        <div class="btns">
+            <a class="delete button" href="{{ url_for('delete', heading=i[1], desc=i[2].replace(' ','_')) }}">Delete</a>
+            
+        </div>
+    </div>
+    {% endfor %}
+    <div class="add_item">
+    <hr>
+    <span class="add_icn"><i class='bx bx-plus-circle'></i><br><span>Add Items</span></span>
+    </div>
+
+    <div class="add_form">
+        <i class='bx bx-x-circle'></i>
+        <form method="post">
+        <label for="Heading">Heading</label>
+        <input type="text" name="heading">
+        <label for="Define">Task Desc.</label>
+        <input type="text" name="desc">
+        <label for="Date">Date</label>
+        <input type="text" name="date">
+        <label for="Img">Image</label>
+        <input type="file" name="file" accept="image/*">
+        <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+    <script src="static/script.js"></script>
+</body>
+</html>
