@@ -4,7 +4,7 @@ import random
 import os
 
 app = Flask(__name__)
-app.secret_key='Hello World'
+app.secret_key='Super Secret'
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
 @app.route('/login',methods=("GET","POST"))
@@ -63,7 +63,7 @@ def login():
 @app.route('/home',methods=("GET","POST"))
 def home():
     user_id = session.get('user_id')
-
+    print("*****************************")
     if user_id is None:
         return redirect(url_for('login'))
 
@@ -71,10 +71,10 @@ def home():
         heading = request.form['heading']
         desc = request.form['desc']
         date = request.form['date']
-
         try:
             f=request.files['file']
-            file_name=user_id+f.filename
+            file_name=str(user_id)+ heading + f.filename
+            print(file_name)
             f.save(os.path.join(app.config['UPLOAD_FOLDER'], file_name))
         except:
             file_name=''
@@ -97,11 +97,13 @@ def home():
     conn.close()
     return render_template('index.html',tasks=tasks,id=user_id)
 
-@app.route('/delete/<heading>/<desc>')
-def delete(heading,desc):
+@app.route('/delete/<img>/<heading>/<desc>')
+def delete(img,heading,desc):
     desc = desc.replace("_"," ")
     conn=sql.connect('users.db')
     cur = conn.cursor()
+    if img != '_':
+        os.remove(os.path.join(app.config['UPLOAD_FOLDER'], img))
     cur.execute('delete from todo where task_heading=? and task_desc=?',(heading,desc))
     conn.commit()
     conn.close()

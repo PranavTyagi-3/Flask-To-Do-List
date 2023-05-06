@@ -18,7 +18,11 @@
     <h1 id="heading">Your Todo List</h1>
     {% for i in tasks %}
     <div class="list_item">
+        {% if i[4] != None %}
+        <img src="static/uploads/{{ i[4] }}">
+        {% else %}
         <img src="static/no_img.jpg">
+        {% endif %}
         <span class="content">
         <p class="item_heading">
             {{ i[1] }}
@@ -31,8 +35,11 @@
         </p>
         </span>
         <div class="btns">
-            <a class="delete button" href="{{ url_for('delete', heading=i[1], desc=i[2].replace(' ','_')) }}">Delete</a>
-            
+            {% if i[4]!=None %}
+            <a class="delete button" href="{{ url_for('delete',img=i[4], heading=i[1], desc=i[2].replace(' ','_')) }}">Delete</a>
+            {% else %}
+            <a class="delete button" href="{{ url_for('delete',img='_', heading=i[1], desc=i[2].replace(' ','_')) }}">Delete</a>
+            {% endif %}
         </div>
     </div>
     {% endfor %}
@@ -43,7 +50,7 @@
 
     <div class="add_form">
         <i class='bx bx-x-circle'></i>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
         <label for="Heading">Heading</label>
         <input type="text" name="heading">
         <label for="Define">Task Desc.</label>
